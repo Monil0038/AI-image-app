@@ -27,7 +27,7 @@ class Text2ImgBaseModel(BaseModel):
 
 
 # APIS
-@app_view.get()
+@app_view.get("/")
 def index():
     return {"message": "Running Well"}
 
