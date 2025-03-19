@@ -2,3 +2,4 @@ uvicorn
 fastapi
 pydentic
 python-multipart
+requests
