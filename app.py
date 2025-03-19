@@ -162,6 +162,3 @@ def get_task(task_id: str):
 
     print(response.text)
     return response.json()
-
-if __name__ == "__main__":
-    uvicorn.run(app_view, host="0.0.0.0", port=8000, limit_max_requests=0)
