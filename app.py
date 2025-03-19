@@ -1,18 +1,14 @@
 import base64
 from io import BytesIO
-import os
 import json
 from fastapi.responses import StreamingResponse
-import uvicorn
 import requests
 from typing import Optional
 from fastapi import FastAPI, File, UploadFile
-from dotenv import load_dotenv
 from pydantic import BaseModel
 
-load_dotenv(".env", "ENV_FILE")
-FOTOR_API_KEY = os.environ.get("FOTOR_API_KEY")
-MAX_STUDIO_KEY = os.environ.get("MAX_STUDIO_KEY")
+FOTOR_API_KEY="sk_yBDvkZDg25yfXNGP6DTM8APF"
+MAX_STUDIO_KEY="6a05644b-b328-43df-b5ec-2e29a83756c3"
 
 app_view = FastAPI()
 

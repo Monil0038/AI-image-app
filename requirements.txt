@@ -1,5 +1,4 @@
 uvicorn
 fastapi
-python-dotenv
 pydentic
 python-multipart
