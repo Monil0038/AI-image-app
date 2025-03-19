@@ -3,3 +3,4 @@ fastapi
 pydentic
 python-multipart
 requests
+python-dotenv
