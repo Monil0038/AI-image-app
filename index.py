@@ -5,7 +5,7 @@ import json
 from fastapi.responses import StreamingResponse
 import requests
 from typing import Optional
-from fastapi import FastAPI, File, UploadFile, Response, status
+from fastapi import FastAPI, File, UploadFile, Response, status, Form
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
@@ -30,6 +30,8 @@ class Text2ImgBaseModel(BaseModel):
     template_id: Optional[str] = "bb43a4fa-105c-444a-9485-2707e147a538"
     negative_prompt: Optional[str] = "Generate Image using of given Prompt"
 
+class AgeChanger(BaseModel):
+    age: Optional[str] = "baby"
 
 # APIS
 @app.get("/")
@@ -37,14 +39,13 @@ def index():
     return {"message": "Running Well"}
 
 @app.post("/age/changer/")
-async def age_changer(file: UploadFile = File(...), age: str = "baby"):
+async def age_changer(file: UploadFile = File(...), age: str = Form(...)):
     try:
         file_const = await file.read()
         image_base64 = base64.b64encode(file_const).decode("utf-8")
-
         payload = {
             'image': image_base64,
-            'age': age
+            'age': age,
         }
         response = requests.post(
             'https://api.maxstudio.ai/age-changer',
