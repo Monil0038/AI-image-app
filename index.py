@@ -74,7 +74,7 @@ def get_job_status(job_id: str):
         response.raise_for_status()
         data = response.json()
         if data["status"] not in ["failed", "not-found", "completed"]:
-            return Response(status_code=status.HTTP_102_PROCESSING)
+            return None
         if data["status"] == "completed":
             # Decode the Base64 string
             # Decode Base64
