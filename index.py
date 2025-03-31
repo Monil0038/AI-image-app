@@ -82,7 +82,8 @@ def get_job_status(job_id: str):
             # Create an in-memory file
             image_stream = BytesIO(image_bytes)
             # Return image as response
-            return StreamingResponse(image_stream, media_type="image/jpeg")
+            # return StreamingResponse(image_stream, media_type="image/jpeg")
+            return data
     except requests.exceptions.RequestException as error:
         print('Request Error:', str(error))
         return {"error": "Failed to connect to age changer API"}
